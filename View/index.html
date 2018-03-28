@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>学生信息管理系统</title>
+</head>
+<body>
+	<center>
+    <h2>学生信息管理系统</h2>
+    <a href='index.php?c=user&a=add'>添加信息</a> |
+    <a href='index.php?c=user&a=index'>查看信息</a>
+    <hr/>
+	<h3>查看信息</h3>
+	<table border='1' width='1200'>
+		<tr>
+			<th>ID</th>
+			<th>姓名</th>
+			<th>性别</th>
+			<th>年龄</th>
+			<th>电话</th>
+			<th>邮箱</th>
+			<th>地址</th>
+			<th>婚否</th>
+			<th>爱好</th>
+			<th>操作</th>
+		</tr>
+        {foreach $res as $k=>$v}
+		<tr align='center'>
+			<td>{$v['id']}</td>
+			<td>{$v['name']}</td>
+			<td>{$v['sex']}</td>
+			<td>{$v['age']}</td>
+			<td>{$v['phone']}</td>
+			<td>{$v['email']}</td>
+			<td>{$v['address']}</td>
+			<td>{$v['hunfou']}</td>
+			<td>{$v['hobby']}</td>
+			<td>
+				<a href="index.php?c=user&a=delete&i={$v['id']}">删除</a>
+				<a href="index.php?c=user&a=edit&i={$v['id']}">修改</a>
+			</td>
+		</tr>
+        {/foreach}
+	</table>
+	</center>
+</body>
+</html>

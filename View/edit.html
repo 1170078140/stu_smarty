@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>学生信息管理系统</title>
+</head>
+<body>
+	<center>
+    <h2>学生信息管理系统</h2>
+    <a href='index.php?c=user&a=add'>添加信息</a> |
+    <a href='index.php?c=user&a=index'>查看信息</a>
+    <hr/>
+	<h3>修改信息</h3>
+		<form action="index.php?c=user&a=update" method="post">
+			<table border='1' width='600' cellpadding="15" cellspacing="0">
+				<input type="hidden" name="id" value="{$res['id']}" />
+				<tr>
+					<td align="right"  width="70">姓名：</td>
+					<td><input type="text" name="name" value="{$res['name']}"  required /></td>
+				</tr>
+				<tr>
+					<td align="right">性别：</td>
+					<td>
+						<input type="radio" name="sex" value="m" {if $res['sex']=='m'} checked {else} {/if} /> 男
+						<input type="radio" name="sex" value="w" {if $res['sex']=='w'} checked {else} {/if} /> 女
+					</td>
+				</tr>
+				<tr>
+					<td align="right">年龄：</td>
+					<td><input type="text" name="age" value="{$res['age']}"  required /></td>
+				</tr>
+				<tr>
+					<td align="right">电话：</td>
+					<td><input type="tel" name="phone" value="{$res['phone']}"  required /></td>
+				</tr>
+				<tr>
+					<td align="right">邮箱：</td>
+					<td><input type="email" name="email" value="{$res['email']}"  required /></td>
+				</tr>
+				<tr>
+					<td align="right">地址：</td>
+					<td><input type="text" name="address" value="{$res['address']}" required /></td>
+				</tr>
+				<tr>
+					<td align="right">婚否：</td>
+					<td>
+						<input type="radio" name="hunfou" value="y" {if $res['hunfou']=='y'} checked {else} {/if} /> 是
+						<input type="radio" name="hunfou" value="n" {if $res['hunfou']=='n'} checked {else} {/if} /> 否
+					</td>
+				</tr>
+				<tr>
+					<td align="right">爱好：</td>
+					<td>
+						<input type="checkbox" name="hobby[]" value="羽毛球"  {if in_array('羽毛球',$res['hobby'])} checked {else} {/if} /> 羽毛球
+						<input type="checkbox" name="hobby[]" value="CS1.6"  {if in_array('CS1.6',$res['hobby'])} checked {else} {/if} /> CS1.6
+						<input type="checkbox" name="hobby[]" value="吃鸡" {if in_array('吃鸡',$res['hobby'])} checked {else} {/if} /> 吃鸡
+						<input type="checkbox" name="hobby[]" value="LOL" {if in_array('LOL',$res['hobby'])} checked {else} {/if} /> LOL
+						<input type="checkbox" name="hobby[]" value="游泳" {if in_array('游泳',$res['hobby'])} checked {else} {/if} /> 游泳
+						<input type="checkbox" name="hobby[]" value="学习" {if in_array('学习',$res['hobby'])} checked {else} {/if} /> 学习
+					</td>
+				</tr>
+				<tr align="center">
+					<td colspan="2">
+						<input type="submit" value="修改" />
+						<input type="reset" value="重置" />
+					</td>
+				</tr>
+			</table>
+		</form>
+	</center>
+</body>
+</html>
